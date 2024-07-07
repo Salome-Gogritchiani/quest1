@@ -1,6 +1,3 @@
-///salo
-// რადგანაც მარტივი გამოყენებული იყო ცოტა გავართულე :-)
-
 let originalArraySalo = [
   {
     id: 1,
@@ -47,6 +44,7 @@ function deepCloneArray3(arr) {
 }
 
 let deepClone3 = deepCloneArray3(originalArraySalo);
+
 console.log("Original Array:", originalArraySalo);
 console.log("Shallow Copy:", shallowCopy3);
 console.log("Deep Clone:", deepClone3);
@@ -61,3 +59,24 @@ console.log("After modification:");
 console.log("Original Array:", originalArraySalo);
 console.log("Shallow Copy:", shallowCopy3);
 console.log("Deep Clone:", deepClone3);
+
+// Displaying results in HTML
+document.getElementById("original-array").textContent = JSON.stringify(
+  originalArraySalo,
+  null,
+  2
+);
+document.getElementById("shallow-copy").textContent = JSON.stringify(
+  shallowCopy3,
+  null,
+  2
+);
+document.getElementById("deep-clone").textContent = JSON.stringify(
+  deepClone3,
+  null,
+  2
+);
+
+let consoleOutput = document.getElementById("console-output");
+consoleOutput.textContent =
+  "Open console to see initial and modified array outputs.";
