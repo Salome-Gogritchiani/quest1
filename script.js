@@ -78,5 +78,4 @@ document.getElementById("deep-clone").textContent = JSON.stringify(
 );
 
 let consoleOutput = document.getElementById("console-output");
-consoleOutput.textContent =
-  "Open console to see initial and modified array outputs.";
+consoleOutput.textContent = "დანარჩენი იხილეთ კონსოლში";
