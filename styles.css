@@ -1,29 +1,153 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+@import url("https://free.bboxtype.com/embedfonts/?family=FiraGO:100i,400,500,600,700");
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "FiraGO", sans-serif;
+}
+body {
+  margin: 0px;
+  box-sizing: border-box;
+}
+/*  */
+/* pool-section */
+/*  */
+.pool-section {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #08199a;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.product-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  width: 400px;
+  height: 298px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.picture-pool {
+  width: 368px;
+  height: 214px;
+}
+.product-card p {
+  font-weight: 500;
+  /* padding: 10px; */
+  font-size: 24px;
+  line-height: 31.2px;
+  font-family: "FiraGO", sans-serif;
+  color: #363939;
 }
 
-h1,
-h2 {
-  color: #d0edf3;
+.auzisasrialo,
+.auzisasrialo p {
+  background-color: #ffe393;
 }
 
-pre {
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow-x: auto;
+.auzi,
+.auzi p {
+  background-color: #e7d1ee;
+}
+.ixvi,
+.ixvi p {
+  background-color: #d8e4c2;
+}
+.btnixvi {
+  padding-left: 40px;
+}
+.products-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  justify-content: space-around;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 46px;
+  height: 36px;
+  border-radius: 6px;
+  /* margin-right: 20px; */
+}
+
+.arrow-button img {
+  width: 40px;
+  height: 40px;
+  /* margin-right: 13px; */
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    width: calc(33.333% - 20px);
+  }
+  .pool::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .pool::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+
+  .pool::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+}
+/* Scrollbar styling for webkit browsers */
+
+/* Responsive adjustments */
+@media screen and (max-width: 350px) {
+  .pool {
+    padding: 10px;
+  }
+  /* .pool {
+    scroll-snap-type: x mandatory;
+  } */
+
+  /* .product-card {
+    scroll-snap-align: center;
+  } */
+
+  .product-card {
+    width: 165px;
+    height: 149px;
+  }
+  /* .auzi {
+    margin-left: -72px;
+  } */
+  .product-card p {
+    font-weight: 500;
+    /* padding: 10px; */
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "FiraGO", sans-serif;
+    color: #363939;
+  }
+  .product-card {
+    flex: 0 0 90%; /* Adjust to 90% for better visibility on smaller screens */
+  }
 }

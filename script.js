@@ -1,81 +1,35 @@
-let originalArraySalo = [
-  {
-    id: 1,
-    name: "Group_3_Salo",
-    details: {
-      description: "This is Group_3_Salo",
-      tags: ["tag1", "tag2"],
-    },
-  },
-  {
-    id: 2,
-    name: "Group_3_Iza",
-    details: {
-      description: "This is Group_3_Iza",
-      tags: ["tag3", "tag4"],
-    },
-  },
-  {
-    id: 3,
-    name: "Group_3_Ruso",
-    details: {
-      description: "Group_3_Ruso",
-      tags: ["tag5", "tag6"],
-    },
-  },
-];
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollContainer = document.querySelector(".pool");
+  const centerCard = document.getElementById("auzi");
 
-function shallowCopyArray3(arr) {
-  return arr.slice();
-}
+  // Center the 'auzi' card initially
+  const centerCardPosition =
+    centerCard.offsetLeft -
+    scrollContainer.offsetWidth / 2 +
+    centerCard.offsetWidth / 2;
+  scrollContainer.scrollLeft = centerCardPosition;
 
-let shallowCopy3 = shallowCopyArray3(originalArraySalo);
+  // Variables to track touch scrolling
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-function deepCloneArray3(arr) {
-  let clone = [];
-  for (let obj of arr) {
-    let newObj = {
-      ...obj,
-      details: { ...obj.details, tags: [...obj.details.tags] },
-    };
-    clone.push(newObj);
-  }
-  return clone;
-}
+  // Event listeners for touch scrolling
+  scrollContainer.addEventListener("touchstart", (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+  });
 
-let deepClone3 = deepCloneArray3(originalArraySalo);
+  scrollContainer.addEventListener("touchend", () => {
+    isDown = false;
+  });
 
-console.log("Original Array:", originalArraySalo);
-console.log("Shallow Copy:", shallowCopy3);
-console.log("Deep Clone:", deepClone3);
-
-shallowCopy3[0].details.description = "Modified description for shallow copy";
-shallowCopy3[0].details.tags.push("tag7");
-
-deepClone3[0].details.description = "Modified description for deep clone";
-deepClone3[0].details.tags.push("tag8");
-
-console.log("After modification:");
-console.log("Original Array:", originalArraySalo);
-console.log("Shallow Copy:", shallowCopy3);
-console.log("Deep Clone:", deepClone3);
-
-// Displaying results in HTML
-document.getElementById("original-array").textContent = JSON.stringify(
-  originalArraySalo,
-  null,
-  2
-);
-document.getElementById("shallow-copy").textContent = JSON.stringify(
-  shallowCopy3,
-  null,
-  2
-);
-document.getElementById("deep-clone").textContent = JSON.stringify(
-  deepClone3,
-  null,
-  2
-);
-
-let consoleOutput = document.getElementById("console-output");
-consoleOutput.textContent = "დანარჩენი იხილეთ კონსოლში";
+  scrollContainer.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 2; // Increase the factor to scroll faster
+    scrollContainer.scrollLeft = scrollLeft - walk;
+  });
+});

@@ -3,25 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Array Cloning Example</title>
+    <title>Scrollable Divs</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Array Cloning Example</h1>
+    <section id="pool_section" class="pool">
+      <div class="pool-section">
+        <div id="auzisasrialo" class="product-card">
+          <img
+            class="picture-pool"
+            src="img/auzisasrialo.png"
+            alt="გასაბერი აუზი"
+          />
+          <div class="product-info">
+            <p>გასაბერი აუზი</p>
+            <button class="arrow-button">
+              <img src="img/Button.png" alt="Arrow" />
+            </button>
+          </div>
+        </div>
 
-      <h2>Original Array</h2>
-      <pre id="original-array"></pre>
+        <div id="auzi" class="product-card">
+          <img class="picture-pool" src="img/auzi.png" alt="კარკასული აუზი" />
+          <div class="product-info">
+            <p>კარკასული აუზი</p>
+            <button class="arrow-button">
+              <img src="img/Button.png" alt="Arrow" />
+            </button>
+          </div>
+        </div>
 
-      <h2>Shallow Copy</h2>
-      <pre id="shallow-copy"></pre>
-
-      <h2>Deep Clone</h2>
-      <pre id="deep-clone"></pre>
-
-      <h2>Console Output</h2>
-      <pre id="console-output"></pre>
-    </div>
+        <div id="ixvi" class="product-card">
+          <img
+            class="picture-pool"
+            src="img/ixvi.png"
+            alt="აუზის აქსესუარები"
+          />
+          <div class="product-info">
+            <p>აუზის აქსესუარები</p>
+            <button class="arrow-button btnixvi">
+              <img src="img/Button.png" alt="Arrow" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
