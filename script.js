@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const poolSection = document.querySelector(".pool-section");
   const cards = document.querySelectorAll(".product-card");
-  let currentIndex = 2; // Start with the center card
+  let currentIndex = 1; // Start with the center card
 
   const updateCarousel = () => {
     poolSection.className = "pool-section center-" + currentIndex;

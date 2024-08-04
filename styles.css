@@ -74,22 +74,22 @@ body {
 }
 
 /* Center the middle item */
-.pool-section.center-1 {
-  transform: translateX(20%);
-}
-
-.pool-section.center-2 {
-  transform: translateX(-20%);
-}
-
-.pool-section.center-3 {
-  transform: translateX(-60%);
-}
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .product-card {
     flex: 0 0 80%; /* Adjust to 80% for better visibility on smaller screens */
     margin: 0 10px; /* Smaller margin for smaller screens */
+  }
+  .pool-section.center-0 {
+    transform: translateX(20%); /* Show left half of the first card */
+  }
+
+  .pool-section.center-1 {
+    transform: translateX(-20%); /* Show full view of the second card */
+  }
+
+  .pool-section.center-2 {
+    transform: translateX(-60%); /* Show right half of the third card */
   }
 }
