@@ -7,22 +7,30 @@ document.addEventListener("DOMContentLoaded", function () {
     poolSection.className = "pool-section center-" + currentIndex;
   };
 
-  // Initialize carousel position
-  updateCarousel();
+  const handleResize = () => {
+    const screenWidth = window.innerWidth;
 
-  // Variables to track touch scrolling
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+    // Remove event listeners if outside the specified width range
+    if (screenWidth < 350 || screenWidth > 750) {
+      poolSection.removeEventListener("touchstart", onTouchStart);
+      poolSection.removeEventListener("touchend", onTouchEnd);
+      poolSection.removeEventListener("touchmove", onTouchMove);
+      return;
+    }
 
-  // Event listeners for touch scrolling
-  poolSection.addEventListener("touchstart", (e) => {
+    // Add event listeners if within the specified width range
+    poolSection.addEventListener("touchstart", onTouchStart);
+    poolSection.addEventListener("touchend", onTouchEnd);
+    poolSection.addEventListener("touchmove", onTouchMove);
+  };
+
+  const onTouchStart = (e) => {
     isDown = true;
     startX = e.touches[0].pageX;
     scrollLeft = poolSection.scrollLeft;
-  });
+  };
 
-  poolSection.addEventListener("touchend", (e) => {
+  const onTouchEnd = (e) => {
     isDown = false;
     const endX = e.changedTouches[0].pageX;
     const diff = startX - endX;
@@ -36,10 +44,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     updateCarousel();
-  });
+  };
 
-  poolSection.addEventListener("touchmove", (e) => {
+  const onTouchMove = (e) => {
     if (!isDown) return;
     e.preventDefault();
-  });
+  };
+
+  // Initialize carousel position
+  updateCarousel();
+
+  // Check screen size on load and add event listeners if within range
+  handleResize();
+
+  // Re-check screen size on window resize
+  window.addEventListener("resize", handleResize);
 });
