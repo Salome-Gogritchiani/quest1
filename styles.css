@@ -22,7 +22,7 @@ body {
   width: 300%; /* Three items */
   justify-content: center;
 }
-
+@media screen and (max-width: 768px) {
 .product-card {
   flex: 0 0 80%; /* Each item takes 80% of the viewport width */
   margin: 0 10px;
@@ -76,7 +76,7 @@ body {
 /* Center the middle item */
 
 /* Responsive adjustments */
-@media screen and (max-width: 768px) {
+
   .product-card {
     flex: 0 0 80%; /* Adjust to 80% for better visibility on smaller screens */
     margin: 0 10px; /* Smaller margin for smaller screens */
